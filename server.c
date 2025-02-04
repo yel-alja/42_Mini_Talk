@@ -6,7 +6,7 @@
 /*   By: yel-alja <yel-alja@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:36:11 by yel-alja          #+#    #+#             */
-/*   Updated: 2025/02/04 15:30:48 by yel-alja         ###   ########.fr       */
+/*   Updated: 2025/02/04 20:37:11 by yel-alja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	sig_handler(int signal, siginfo_t *s_i, void *last)
 	if (g_st.i == 8)
 	{
 		write(1, &g_st.re, 1);
+		if(g_st.re == 0)
+			kill(s_i->si_pid ,SIGUSR1);
 		g_st.i = 0;
 		g_st.re = 0;
 	}
