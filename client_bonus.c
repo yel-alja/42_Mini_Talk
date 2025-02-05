@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-alja <yel-alja@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 20:12:18 by yel-alja          #+#    #+#             */
-/*   Updated: 2025/02/05 09:30:22 by yel-alja         ###   ########.fr       */
+/*   Created: 2025/02/05 09:16:59 by yel-alja          #+#    #+#             */
+/*   Updated: 2025/02/05 09:17:32 by yel-alja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	signals_sender(char str, pid_t pid)
 {
@@ -26,13 +26,18 @@ void	signals_sender(char str, pid_t pid)
 				flag = kill(pid, SIGUSR1);
 			else
 				flag = kill(pid, SIGUSR2);
-			usleep(500);
+			usleep(600);
 			byte++;
 		}
 	if (flag == -1)
 		write(1, "pid is wrong\n", 13);
 }
-
+void handler(int sig)
+{
+	(void)sig;
+	write(1, "received successfully\n", 22);
+	exit(0);
+}
 int	main(int ac, char **av)
 {
 	pid_t	pid;
@@ -49,5 +54,8 @@ int	main(int ac, char **av)
 	signals_sender(av[2][i], pid);
 	i++;
 	}
+	signal(SIGUSR1 , handler);
+	signals_sender('\0', pid);
+	pause();
 	return 0;
 }
