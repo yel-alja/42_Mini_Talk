@@ -6,7 +6,7 @@
 /*   By: yel-alja <yel-alja@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:36:11 by yel-alja          #+#    #+#             */
-/*   Updated: 2025/02/05 09:28:10 by yel-alja         ###   ########.fr       */
+/*   Updated: 2025/02/07 09:31:35 by yel-alja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	sig_handler(int signal, siginfo_t *s_i, void *last)
 		g_st.i = 0;
 		g_st.re = 0;
 	}
+	kill(s_i->si_pid, SIGUSR1);
 }
 
 int	main(void)
@@ -46,7 +47,7 @@ int	main(void)
 	sa.sa_sigaction = sig_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
-	//write somthing
+	write(1, "server pid :", 12);
 	ft_putnbr((int)getpid());
 	write(1, "\n", 1);
 	sigaction(SIGUSR1, &sa, NULL);
