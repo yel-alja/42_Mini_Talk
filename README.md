@@ -13,7 +13,7 @@ Minitalk is a 42 project that implements a simple client-server communication sy
 Clone the repository and compile the project:
 ```sh
  git clone <your-repository-link>
- cd minitalk
+ cd 42_Mini_Talk
  make
 ```
 This will generate two executables: `server` and `client`.
