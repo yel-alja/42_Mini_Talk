@@ -5,15 +5,15 @@ EXC_BONUS_C = .client_b
 EXC_BONUS_S = .server_b
 EXC_MANDATORY_C = .client_mandtory
 EXC_MANDATORY_S = .server_mandtory
-SRCSCLIENT = utils.c \
-			client.c
-SRCSERVER = server.c \
-				utils.c
+SRCSCLIENT = srcs/utils.c \
+			srcs/client.c
+SRCSERVER = srcs/server.c \
+				srcs/utils.c
 
-SRCSCLIENTB = utils_bonus.c \
-			client_bonus.c
-SRCSERVERB = server_bonus.c \
-			utils_bonus.c
+SRCSCLIENTB = bonus/utils_bonus.c \
+			bonus/client_bonus.c
+SRCSERVERB = bonus/server_bonus.c \
+			bonus/utils_bonus.c
 
 OBJ_SM = $(SRCSERVER:.c=.o)
 OBJ_CM = $(SRCSCLIENT:.c=.o)

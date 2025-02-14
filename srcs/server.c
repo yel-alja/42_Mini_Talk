@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-alja <yel-alja@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 09:15:37 by yel-alja          #+#    #+#             */
-/*   Updated: 2025/02/06 17:40:37 by yel-alja         ###   ########.fr       */
+/*   Created: 2025/01/30 17:36:11 by yel-alja          #+#    #+#             */
+/*   Updated: 2025/02/14 18:30:24 by yel-alja         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_bonus.h"
+#include "../include/minitalk.h"
 
 struct s_global	g_st;
 
@@ -32,10 +32,7 @@ void	sig_handler(int signal, siginfo_t *s_i, void *last)
 		g_st.i++;
 	if (g_st.i == 8)
 	{
-		usleep(200);
 		write(1, &g_st.re, 1);
-		if (g_st.re == 0)
-			kill(s_i->si_pid, SIGUSR2);
 		g_st.i = 0;
 		g_st.re = 0;
 	}
