@@ -71,7 +71,7 @@ Example:
 - Signals are used to transmit messages **bit by bit**, ensuring compatibility with system constraints.
 
 ## 🏆 Authors
-- **Your Name** - https://github.com/yel-alja )
+- **Your Name** - yassine el-alja )
 
 ## 📄 License
 This project is part of **42 School** curriculum and follows its coding standards.
