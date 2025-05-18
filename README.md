@@ -12,7 +12,7 @@ Minitalk is a 42 project that implements a simple client-server communication sy
 ## 🚀 Installation
 Clone the repository and compile the project:
 ```sh
- git clone <repo-link>
+ git clone git@github.com:yel-alja/42_Mini_Talk.git
  cd 42_Mini_Talk
  make
 ```
